@@ -1,9 +1,8 @@
 package com.Potato;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.PrintStream;
+import java.io.*;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -25,26 +24,40 @@ public class Main {
             PrintStream out = new PrintStream(new FileOutputStream(outputFile));
             System.setOut(out);
 
-
             for(int x=0 ;args.length-1 >x; x++) {
+
+                int xInput = 0 ;
 
                 String inputFile = args[x];
 
                 Scanner scan = new Scanner(new File(inputFile));
+                //BufferedReader buffScan = new BufferedReader(new FileReader(inputFile));
 
 
+                List<Integer> list = new ArrayList<Integer>();
 
+//                while((xInput = buffScan.read()) !=null) {
+//                    list.add(xInput);
+//                }
+
+
+                while(scan.hasNextInt()) {
+                    list.add(scan.nextInt());
+                    xInput++;
+                }
+
+                System.out.print(list);
             }
 
-
-
-
-
-
-
-
-
         }
+
+
+        catch (FileNotFoundException var13) {
+            var13.printStackTrace();
+        }
+//        catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
 
         //hello my name is richie
