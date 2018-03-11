@@ -1,8 +1,6 @@
 package com.Potato;
 import java.io.*;
 import java.text.DecimalFormat;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 
@@ -11,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try{
+        try {
             int end = args.length - 1;
 
             //set output file to the last args
@@ -24,43 +22,42 @@ public class Main {
             PrintStream out = new PrintStream(new FileOutputStream(outputFile));
             System.setOut(out);
 
-            for(int x=0 ;args.length-1 >x; x++) {
+            for (int x = 0; args.length - 1 > x; x++) {
 
-                int xInput = 0 ;
+                int xInput = 0;
 
                 String inputFile = args[x];
 
+                Scanner counterFile = new Scanner(new File(inputFile));
                 Scanner scan = new Scanner(new File(inputFile));
                 //BufferedReader buffScan = new BufferedReader(new FileReader(inputFile));
 
 
-                List<Integer> list = new ArrayList<Integer>();
-
-//                while((xInput = buffScan.read()) !=null) {
-//                    list.add(xInput);
-//                }
-
-
-                while(scan.hasNextInt()) {
-                    list.add(scan.nextInt());
+                while (counterFile.hasNextInt()) {
+                    counterFile.nextInt();
                     xInput++;
                 }
 
-                System.out.print(list);
+                int[] arr = new int[xInput];
+                int[] outputArr = new int[xInput];
+
+                for (int i = 0; i < xInput; i++) {
+                    arr[i] = scan.nextInt();
+                }
+                com.Potato.MergeSort.mergeSort(arr);
+
+                System.out.print(arr[xInput/2]);
+
+
+
+
             }
 
+
+            //hello my name is richie
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
         }
 
-
-        catch (FileNotFoundException var13) {
-            var13.printStackTrace();
-        }
-//        catch (IOException e) {
-//            e.printStackTrace();
-//        }
-
-
-        //hello my name is richie
     }
-
 }
