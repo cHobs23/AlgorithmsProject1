@@ -39,17 +39,21 @@ public class Main {
                 }
 
                 int[] arr = new int[xInput];
-                int[] outputArr = new int[xInput];
+                int[] mergeArr = new int[xInput];
+                int[] selectionArr = new int[xInput];
+
+
 
                 for (int i = 0; i < xInput; i++) {
                     arr[i] = scan.nextInt();
+                    mergeArr[i] = arr[i];
+                    selectionArr[i] = arr[i];
                 }
-                com.Potato.MergeSort.mergeSort(arr);
+                com.Potato.MergeSort.mergeSort(mergeArr);
 
-                System.out.print(arr[xInput/2]);
-
-
-
+                int y = com.Potato.SelectionSort.sort(selectionArr,0,xInput-1);
+                System.out.println(com.Potato.SelectionSort.getInverCount);
+                System.out.println(mergeArr[xInput/2]);
 
             }
 
