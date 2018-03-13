@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 public class MergeSort {
 
+    public static int inversionCount = 0;
 
     // Places the elements of the given array into sorted order
     // using the merge sort algorithm.
@@ -61,11 +62,14 @@ public class MergeSort {
                     left[i1] <= right[i2])) {
                 result[i] = left[i1];    // take from left
                 i1++;
+                inversionCount++;
             } else {
                 result[i] = right[i2];   // take from right
                 i2++;
+                inversionCount++;
             }
         }
+        //System.out.println("Inversion count is = " + inversionCount);
         return result;
     }
    }
