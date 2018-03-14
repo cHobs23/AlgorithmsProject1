@@ -2,7 +2,6 @@ package com.Potato;
 import java.io.*;
 import java.text.DecimalFormat;
 import java.util.Scanner;
-import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
 
 
@@ -56,18 +55,22 @@ public class Main {
                 }
 
                 long start = System.nanoTime();
-                //System.out.println("This is unsorted Array" + mergeArr);
-                com.Potato.MergeSort.mergeSort(mergeArr);
+//                System.out.println("This is unsorted Array" + mergeArr);
+//                com.Potato.MergeSort.mergeSort(mergeArr);
 //                System.out.println("\n\nThis is sorted Array");
 //                for(int i = 0; i < xInput;i++){
 //                    System.out.print(mergeArr[i]+",");
-                //}
-                 //com.Potato.SelectionSort.sort(selectionArr,0,xInput-1);
-                 long elapseTime = System.nanoTime() - start;
-                 double seconds = elapseTime/1000000000.0;
+//                }
+                 com.Potato.SelectionSort.sort(selectionArr,0,xInput-1);
+                 System.out.println("Inversion count" +com.Potato.SelectionSort.getInverCount());
+
+               // System.out.println(com.Potato.mergeSrt.mergeSort(mergeArr,mergeArr.length-1));
+
+                long elapseTime = System.nanoTime() - start;
+                double seconds = elapseTime/1000000000.0;
                 System.out.println("\nThe lower median is" + mergeArr[(xInput/2)-1]);
                 System.out.println("Elapsed Time for finding median:"+ seconds);
-                //System.out.println(com.Potato.SelectionSort.getInverCount);
+
 
 
             }
